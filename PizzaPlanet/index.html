@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Pizza Planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="description" content="The menu for the best pizza in town" >   
+    <link href='css/font.css' rel='stylesheet' />
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <script src="js/vendor/angular.min.js" defer></script>
+  </head>
+  <body ng-app="PizzaPlanetApp">
+    <div class="header">
+      <h1><span>Pizza</span><span>Planet</span></h1>
+    </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <h1>Specials for {{ today | date }}</h1>
+        
+        <h2>Appetizers</h2>
+        <div class="appetizers row" ng-repeat="appetizer in appetizers">
+          <div class="item col-md-9">
+            <h3 class="name"> {{ appetizer.name }}</h3>
+            <p class="description">{{ appetizer.description }}</p>
+          </div>
+          <div class="price col-md-3">
+            <p class="price">{{ appetizer.price | currency }}</p>
+          </div>
+        </div>
+
+        <h2>Main Courses</h2>
+        <div class="mains row" ng-repeat="main in mains">
+          <div class="item col-md-9">
+            <h3 class="name">{{ main.name}}</h3>
+            <p class="description">{{ main.description }}</p>
+          </div>
+          <div class="price col-md-3">
+            <p class="price">{{ main.price | currency }}</p>
+          </div>
+        </div> 
+
+        <h2>Extras</h2>
+        <div class="extras row" ng-repeat="extra in extras">
+          <div class="item col-md-9">
+            <h3 class="name">{{ extra.name}}</h3>
+            <p class="description">{{ extra.description }}</p>
+          </div>
+          <div class="price col-md-3">
+            <p class="price">{{ extra.price | currency }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+    </div>
+    
+    <!-- Modules -->
+    <script src="js/app.js" defer></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js" defer></script>
+  </body>
+</html>
